@@ -1,5 +1,11 @@
 package by.dzkoirn.cristmastree.common
 
-class TreeHolder {
+class TreeHolder(
+    height: Int,
+    width: Int,
+) {
+    init {
+
+    }
 
 }
