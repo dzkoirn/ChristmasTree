@@ -1,3 +1,5 @@
 rootProject.name = 'cristmass-tree'
 
-includeBuild 'android-app'
+include ':common'
+include 'android-app'
+
