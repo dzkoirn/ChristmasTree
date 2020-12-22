@@ -4,4 +4,5 @@ class Painter(
     private val vCanvas: VirtualCanvas,
     private val treeHolder: TreeHolder
 ) {
+
 }
