@@ -18,7 +18,8 @@ class TreeHolder private constructor(
             Line(leaf.point, this.point)
 
         /**
-         * return root of the Tree
+         * This method compute Tree. It's heavy method.
+         * return TreeHolder object.
          */
         fun generateTree(
             deep: Int,
