@@ -1,8 +1,7 @@
-package by.dzkoirn.cristmastree.android
+package cristmastree.android
 
 import android.service.wallpaper.WallpaperService
 import android.view.SurfaceHolder
-import by.dzkoirn.cristmastree.common.VirtualCanvas
 
 class ChristmasTreeWallpapperService : WallpaperService() {
 
@@ -21,6 +20,8 @@ class ChristmasTreeWallpapperService : WallpaperService() {
             super.onSurfaceCreated(holder)
 
             holder.surfaceFrame
+            val canvas = holder.surface.lockCanvas(holder.surfaceFrame)
+            canvas.
         }
 
         override fun onSurfaceChanged(
@@ -32,8 +33,6 @@ class ChristmasTreeWallpapperService : WallpaperService() {
             super.onSurfaceChanged(holder, format, width, height)
 
         }
-
-
 
     }
 }

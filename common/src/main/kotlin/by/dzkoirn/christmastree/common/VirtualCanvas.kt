@@ -1,4 +1,4 @@
-package by.dzkoirn.cristmastree.common
+package by.dzkoirn.christmastree.common
 
 /**
  * Clients should implement this interface and provide instance

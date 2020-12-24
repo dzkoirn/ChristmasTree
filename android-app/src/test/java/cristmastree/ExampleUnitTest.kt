@@ -1,4 +1,4 @@
-package by.dzkoirn.cristmastree
+package cristmastree
 
 import org.junit.Test
 

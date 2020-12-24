@@ -1,4 +1,4 @@
-package by.dzkoirn.cristmastree.common
+package by.dzkoirn.christmastree.common
 
 fun pow2(n: Int): Int = ipow2(1, n)
 

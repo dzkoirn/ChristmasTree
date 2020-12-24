@@ -1,4 +1,4 @@
-package by.dzkoirn.cristmastree.android
+package cristmastree.android
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
