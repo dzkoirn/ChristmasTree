@@ -17,6 +17,15 @@ class TreeHolder private constructor(
         private fun Leaf.toLine(leaf: Leaf): Line =
             Line(leaf.point, this.point)
 
+
+        fun createTreeHolder(
+            width: Int,
+            height: Int,
+            ballSize: Float,
+            gapSize: Float,
+        ) {
+        }
+
         /**
          * This method compute Tree. It's heavy method.
          * return TreeHolder object.
@@ -26,6 +35,11 @@ class TreeHolder private constructor(
             width: Int,
             height: Int,
         ): TreeHolder {
+
+            fun calculateTreeDeep(
+                width: Int, ballSize: Float, gapSize: Float
+            ) = generateSequence(1) { previous -> previous + 1 }
+                .last { deep -> pow2(deep).let { it * ballSize + (it + 1) * gapSize } < width }
 
             tailrec fun generateTree(
                 deep: Int,

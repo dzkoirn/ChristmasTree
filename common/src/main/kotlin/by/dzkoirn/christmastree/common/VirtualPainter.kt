@@ -1,5 +1,5 @@
 package by.dzkoirn.christmastree.common
 
-class VirtualPainter {
+interface VirtualPainter {
 
 }

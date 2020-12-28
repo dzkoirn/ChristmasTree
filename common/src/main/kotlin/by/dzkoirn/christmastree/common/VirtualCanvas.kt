@@ -12,4 +12,6 @@ interface VirtualCanvas {
      * @return canvas height in pixels
      */
     val height: Int
+
+    fun drawLines(treeLines: List<Line>, virtualPainter: VirtualPainter)
 }
