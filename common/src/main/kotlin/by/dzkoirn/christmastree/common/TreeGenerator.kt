@@ -14,6 +14,10 @@ fun generateProportionalTree(
     gapSize: Float
 ): TreeHolder {
 
+    if (width == 0 || height == 0) {
+        throw IllegalArgumentException("width = $width and height = $height should be more than 0")
+    }
+
     fun calculateTreeDeep(
         width: Int, ballSize: Float, gapSize: Float
     ) = generateSequence(1) { previous -> previous + 1 }
