@@ -52,7 +52,7 @@ class ProportionalTreeGeneratorTest {
 
     @BeforeAll
     fun setup() {
-        treeHolder = generateProportionalTree(4, 16, 5)
+        treeHolder = generateProportionalTree(16, 5, 0.5f, 0.5f)
     }
 
     @Test

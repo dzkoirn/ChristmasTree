@@ -1,24 +1,24 @@
 package by.dzkoirn.christmastree.common
 
-import by.dzkoirn.graphic.common.Leaf
 import by.dzkoirn.graphic.common.Line
 import by.dzkoirn.graphic.common.Point
-import by.dzkoirn.graphic.common.toLine
 
 /**
  * This method compute Tree. It's heavy method.
  * return TreeHolder object.
  */
 fun generateProportionalTree(
-    deep: Int,
     width: Int,
     height: Int,
+    ballSize: Float,
+    gapSize: Float
 ): TreeHolder {
 
     fun calculateTreeDeep(
         width: Int, ballSize: Float, gapSize: Float
     ) = generateSequence(1) { previous -> previous + 1 }
-        .last { deep -> pow2(deep).let { it * ballSize + (it + 1) * gapSize } < width }
+        .takeWhile { deep ->  pow2(deep).let { it * ballSize + (it + 1) * gapSize } < width }
+        .last() + 1
 
     tailrec fun generateTree(
         deep: Int,
@@ -80,6 +80,7 @@ fun generateProportionalTree(
         }
     }
 
+    val deep = calculateTreeDeep(width, ballSize, gapSize)
     val root = generateTree(deep, width, height/(deep + 1))
     val points = treePoints(listOf(root))
     val lines = treeLines(listOf(root))
