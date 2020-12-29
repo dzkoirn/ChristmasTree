@@ -1,16 +1,17 @@
 package by.dzkoirn.christmastree.common
 
+import by.dzkoirn.graphic.common.AbstractArtist
+import by.dzkoirn.graphic.common.Colors
 import kotlinx.coroutines.*
 import kotlin.time.ExperimentalTime
 
 class SceneHolder(
     private val treeHolder: TreeHolder,
-    private val virtualPainter: VirtualPainter,
-    private val canvas: VirtualCanvas
+    private val artist: AbstractArtist,
 ) {
-
     private var loopJob: Job? = null
 
+    @ExperimentalUnsignedTypes
     @ExperimentalTime
     fun start() {
         loopJob = loop()
@@ -20,27 +21,13 @@ class SceneHolder(
         loopJob?.cancel()
     }
 
+    @ExperimentalUnsignedTypes
     @ExperimentalTime
     private fun loop() =
         GlobalScope.launch {
             while (isActive) {
-                canvas.drawLines(treeHolder.treeLines, virtualPainter)
+                artist.drawLines(treeHolder.treeLines, Colors.Green)
                 delay(100)
             }
         }
-
-    companion object {
-
-        fun create(
-            width: Int,
-            height: Int,
-            ballSize: Float,
-            gapSize: Float,
-            virtualPainter: VirtualPainter,
-            virtualCanvas: VirtualCanvas
-        ): SceneHolder {
-            val deep = calculateTreeDeep(width, ballSize, gapSize)
-            return SceneHolder(TreeHolder.generateTree(deep, width, height), virtualPainter, virtualCanvas)
-        }
-    }
 }

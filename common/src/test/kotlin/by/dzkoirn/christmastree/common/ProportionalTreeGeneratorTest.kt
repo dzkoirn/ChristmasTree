@@ -1,12 +1,14 @@
 package by.dzkoirn.christmastree.common
 
+import by.dzkoirn.graphic.common.Line
+import by.dzkoirn.graphic.common.Point
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class TreeHolderTest {
+class ProportionalTreeGeneratorTest {
 
     private val expectedPoints by lazy {
         listOf(
@@ -50,7 +52,7 @@ class TreeHolderTest {
 
     @BeforeAll
     fun setup() {
-        treeHolder = TreeHolder.generateTree(4, 16, 5)
+        treeHolder = generateProportionalTree(4, 16, 5)
     }
 
     @Test

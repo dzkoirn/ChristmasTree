@@ -9,3 +9,7 @@ private tailrec fun ipow2(acc: Int, n: Int): Int {
         ipow2(acc * 2 ,n - 1)
     }
 }
+
+@ExperimentalUnsignedTypes
+fun UByte.compareTo(int: Int): Int =
+    this.compareTo(int.toUInt())
