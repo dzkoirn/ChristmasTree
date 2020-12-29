@@ -1,4 +1,4 @@
-package by.dzkoirn.cristmastree.android
+package by.dzkoirn.christmastree.android
 
 import android.graphics.Paint
 import by.dzkoirn.christmastree.common.VirtualPainter

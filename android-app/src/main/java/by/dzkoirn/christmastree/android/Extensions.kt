@@ -1,4 +1,4 @@
-package by.dzkoirn.cristmastree.android
+package by.dzkoirn.christmastree.android
 
 import android.content.Context
 import android.content.res.Resources
