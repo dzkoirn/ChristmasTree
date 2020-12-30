@@ -28,6 +28,7 @@ class SceneHolder(
             while (isActive) {
                 artist.startDrawing()
                 artist.drawLines(treeHolder.treeLines, Colors.Green)
+                artist.drawBalls(treeHolder.treeBalls, Colors.Cyan)
                 artist.postUpdates()
                 delay(100)
             }

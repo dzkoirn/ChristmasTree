@@ -18,15 +18,25 @@ class ChristmasTreeWallpapperDemoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_demo)
 
         val surfaceView = findViewById<SurfaceView>(R.id.surface)
-        surfaceView.holder.addCallback(object : SurfaceHolder.Callback {
+        val value = object : SurfaceHolder.Callback {
 
             private lateinit var sceneHolder: SceneHolder
 
             override fun surfaceCreated(holder: SurfaceHolder) {
                 sceneHolder = with(holder) {
+                    val dp32 = 32f.dp2Px(this@ChristmasTreeWallpapperDemoActivity)
                     val dp16 = 16f.dp2Px(this@ChristmasTreeWallpapperDemoActivity)
+                    val dp8 = 8f.dp2Px(this@ChristmasTreeWallpapperDemoActivity)
+                    val dp4 = 4f.dp2Px(this@ChristmasTreeWallpapperDemoActivity)
+                    val dp2 = 2f.dp2Px(this@ChristmasTreeWallpapperDemoActivity)
+                    val dp1 = 1f.dp2Px(this@ChristmasTreeWallpapperDemoActivity)
                     SceneHolder(
-                        generateProportionalTree(surfaceFrame.width(), surfaceFrame.height(), dp16, dp16),
+                        generateProportionalTree(
+                            surfaceFrame.width(),
+                            surfaceFrame.height(),
+                            dp32,
+                            dp32
+                        ),
                         AndroidArtist(this)
                     )
                 }
@@ -46,7 +56,8 @@ class ChristmasTreeWallpapperDemoActivity : AppCompatActivity() {
                 sceneHolder.stop()
             }
 
-        })
+        }
+        surfaceView.holder.addCallback(value)
 
     }
 }

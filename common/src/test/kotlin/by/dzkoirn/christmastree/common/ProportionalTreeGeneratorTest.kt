@@ -57,20 +57,20 @@ class ProportionalTreeGeneratorTest {
 
     @Test
     fun checkTreePointsSize() {
-        val points = treeHolder.treePoints
+        val points = treeHolder.treeBalls.map { it.point }
         Assertions.assertSame(expectedPoints.size, points.size, "expected size should be the same as point size")
     }
 
     @Test
     fun checkTreePointsSame() {
-        val points = treeHolder.treePoints
+        val points = treeHolder.treeBalls.map { it.point }
         Assertions.assertTrue(points.containsAll(expectedPoints), "expected and calculated points should be the same")
     }
 
     @Test
     fun checkTreePointDifference() {
-        treeHolder.treePoints.forEach {
-            Assertions.assertTrue(expectedPoints.contains(it), "expected point don't contains $it")
+        treeHolder.treeBalls.forEach {
+            Assertions.assertTrue(expectedPoints.contains(it.point), "expected point don't contains $it")
         }
     }
 

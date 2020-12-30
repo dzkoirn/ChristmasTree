@@ -2,7 +2,9 @@ package by.dzkoirn.christmastree.android
 
 import android.content.Context
 import android.content.res.Resources
+import android.graphics.RectF
 import android.util.DisplayMetrics
+import by.dzkoirn.graphic.common.Ball
 
 /**
  * This method converts dp unit to equivalent pixels, depending on device density.
@@ -39,3 +41,6 @@ fun Float.Px2Dp(context: Context?): Float {
         this / (metrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
     }
 }
+
+fun Ball.toRectF(): RectF =
+    RectF(point.x - radius, point.y - radius, point.x + radius, point.y + radius)

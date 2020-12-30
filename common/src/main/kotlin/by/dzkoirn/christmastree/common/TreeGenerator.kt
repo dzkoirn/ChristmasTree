@@ -1,5 +1,6 @@
 package by.dzkoirn.christmastree.common
 
+import by.dzkoirn.graphic.common.Ball
 import by.dzkoirn.graphic.common.Line
 import by.dzkoirn.graphic.common.Point
 
@@ -32,12 +33,12 @@ fun generateProportionalTree(
     ): Leaf {
         val slices = pow2(deep)
         val elements = slices / 2
-        val sliceSize = width / slices
+        val sliceSize = width / slices.toFloat()
 
         val leafs = (0 until elements).map { index ->
             Leaf(
                 point = Point(
-                    x = (sliceSize + index * 2 * sliceSize).toFloat(),
+                    x = (sliceSize + index * 2 * sliceSize),
                     y = (height * deep).toFloat()
                 ),
                 left = sequence.elementAtOrNull(index * 2),
@@ -86,8 +87,10 @@ fun generateProportionalTree(
 
     val deep = calculateTreeDeep(width, ballSize, gapSize)
     val root = generateTree(deep, width, height/(deep + 1))
-    val points = treePoints(listOf(root))
+    val balls = treePoints(listOf(root)).map {  p ->
+        Ball(p, ballSize/2)
+    }
     val lines = treeLines(listOf(root))
 
-    return TreeHolder(root, lines, points)
+    return TreeHolder(root, lines, balls)
 }

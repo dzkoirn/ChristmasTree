@@ -10,6 +10,11 @@ data class Line(
     val end: Point
 )
 
+data class Ball(
+    val point: Point,
+    val radius: Float
+)
+
 data class Color @ExperimentalUnsignedTypes constructor(
     val rgbColor: UInt // #FFAABBCC
 ) {
@@ -25,5 +30,6 @@ data class Color @ExperimentalUnsignedTypes constructor(
 
 @ExperimentalUnsignedTypes
 object Colors {
+    val Cyan = Color(0xff00ffffu)
     val Green = Color(0xFF00FF00u)
 }

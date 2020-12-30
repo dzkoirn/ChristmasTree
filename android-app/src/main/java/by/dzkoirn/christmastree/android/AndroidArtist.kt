@@ -3,10 +3,7 @@ package by.dzkoirn.christmastree.android
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.view.SurfaceHolder
-import by.dzkoirn.graphic.common.Line
-import by.dzkoirn.graphic.common.AbstractArtist
-import by.dzkoirn.graphic.common.Color
-import by.dzkoirn.graphic.common.Point
+import by.dzkoirn.graphic.common.*
 import java.lang.IllegalStateException
 
 class AndroidArtist(
@@ -36,20 +33,65 @@ class AndroidArtist(
             acc[position + 3] = end.y
             acc
         }
-        val paint = Paint().apply {
-            this.color = color.rgbColor.toInt()
-        }
         withCanvas {
+            val paint = Paint().apply {
+                this.color = color.rgbColor.toInt()
+            }
             drawLines(linesArray, paint)
         }
     }
 
-    override fun drawPoints(collection: Collection<Point>, color: Color) {
-        TODO("Not yet implemented")
+    @ExperimentalUnsignedTypes
+    override fun drawLine(line: Line, color: Color) {
+        withCanvas {
+            val paint = Paint().apply {
+                this.color = color.rgbColor.toInt()
+            }
+            drawLine(line.start.x, line.start.y, line.end.x, line.end.y, paint)
+        }
     }
 
+    @ExperimentalUnsignedTypes
+    override fun drawPoints(points: Collection<Point>, color: Color) {
+        val pointsArray = FloatArray(points.size * 4)
+        points.foldIndexed(pointsArray) { index, acc, p ->
+            acc[index * 2] = p.x
+            acc[index * 2 + 1] = p.y
+            acc
+        }
+        withCanvas {
+            val paint = Paint().apply {
+                this.color = color.rgbColor.toInt()
+            }
+            drawPoints(pointsArray, paint)
+        }
+    }
+
+    @ExperimentalUnsignedTypes
     override fun drawPoint(point: Point, color: Color) {
-        TODO("Not yet implemented")
+        withCanvas {
+            val paint = Paint().apply {
+                this.color = color.rgbColor.toInt()
+            }
+            drawPoint(point.x, point.y, paint)
+        }
+    }
+
+    @ExperimentalUnsignedTypes
+    override fun drawBalls(balls: Collection<Ball>, color: Color) {
+        balls.forEach {
+            drawBall(it, color)
+        }
+    }
+
+    @ExperimentalUnsignedTypes
+    override fun drawBall(ball: Ball, color: Color) {
+        withCanvas {
+            val paint = Paint().apply {
+                this.color = color.rgbColor.toInt()
+            }
+            drawOval(ball.toRectF(), paint)
+        }
     }
 
     private fun withCanvas(block: Canvas.() -> Unit) {
