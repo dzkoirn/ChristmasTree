@@ -26,7 +26,9 @@ class SceneHolder(
     private fun loop() =
         GlobalScope.launch {
             while (isActive) {
+                artist.startDrawing()
                 artist.drawLines(treeHolder.treeLines, Colors.Green)
+                artist.postUpdates()
                 delay(100)
             }
         }

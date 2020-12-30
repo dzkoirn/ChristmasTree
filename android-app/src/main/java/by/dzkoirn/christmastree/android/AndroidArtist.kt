@@ -27,7 +27,7 @@ class AndroidArtist(
 
     @ExperimentalUnsignedTypes
     override fun drawLines(lines: Collection<Line>, color: Color) {
-        val linesArray = FloatArray(lines.size)
+        val linesArray = FloatArray(lines.size * 4)
         lines.foldIndexed(linesArray) { index, acc, (start, end) ->
             val position = index * 4
             acc[position] = start.x

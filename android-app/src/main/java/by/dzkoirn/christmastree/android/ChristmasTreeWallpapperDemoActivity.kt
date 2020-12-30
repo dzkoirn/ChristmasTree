@@ -1,6 +1,7 @@
 package by.dzkoirn.christmastree.android
 
 import android.os.Bundle
+import android.util.Log
 import android.view.SurfaceHolder
 import android.view.SurfaceView
 import androidx.appcompat.app.AppCompatActivity
@@ -38,7 +39,7 @@ class ChristmasTreeWallpapperDemoActivity : AppCompatActivity() {
                 width: Int,
                 height: Int
             ) {
-                TODO("Not yet implemented")
+                Log.d("surfaceChanged", "$width $height")
             }
 
             override fun surfaceDestroyed(holder: SurfaceHolder) {
