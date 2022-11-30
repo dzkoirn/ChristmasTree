@@ -10,7 +10,6 @@ import by.dzkoirn.christmastree.common.generateProportionalTree
 import kotlin.time.ExperimentalTime
 
 class ChristmasTreeWallpapperDemoActivity : AppCompatActivity() {
-
     @ExperimentalUnsignedTypes
     @ExperimentalTime
     override fun onCreate(savedInstanceState: Bundle?) {
